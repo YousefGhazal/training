@@ -25,7 +25,7 @@ class Post:
     data = []
 
     def __init__(self, text: str, user: User) -> None:
-        self.text = text
+        self.text:str = text
         self.date = datetime.now()
         self.user = user
         Post.data.append(self)
@@ -53,13 +53,22 @@ class Comment:
 user = User("yousef", "yasser", "email.com")
 user1 = User("yousef", "yasser", "email.com")
 pro = Profile("bbb", ["ll", "pp"], user1)
-post = Post("posttext", user1)
+post = Post("post text hh", user1)
 com = Comment("rrr", post, user1)
+
+# - input => keyword , output => list of posts 
+print(Post.data[0].text)
+p_word = input()
+def get_posts_by_keyword(word):
+    for i in Post.data:
+        arr = i.text.split()
+        if word in arr:
+            print(i)
+
+get_posts_by_keyword(p_word)
 
 # input => post.text , output => list of data form comment
 # k_post = input()
-
-
 # def get_comments(post):
 #     comments = []
 #     for i in Comment.data:
@@ -72,18 +81,19 @@ com = Comment("rrr", post, user1)
 
 # input => user.fname , output => list of data form post
 
-u_post = input()
+# u_post = input()
 
 
-def get_posts(user):
-    posts = []
-    for i in Post.data:
-        if i.user.fname == user:
-            posts.append(i)
-    print(posts)
+# def get_posts(user):
+#     posts = []
+#     for i in Post.data:
+#         if i.user.fname == user:
+#             posts.append(i)
+#     print(posts)
 
 
-get_posts(u_post)
+# get_posts(u_post)
+
 
 """
 - save class data in list 
