@@ -29,7 +29,7 @@ class Post:
         self.date = datetime.now()
         self.user = user
         Post.data.append(self)
-        
+
 
 class Like:
     data = []
@@ -42,32 +42,48 @@ class Like:
 
 class Comment:
     data = []
+
     def __init__(self, text, post: Post, user: User) -> None:
         self.post = post
         self.user = user
         self.text = text
         Comment.data.append(self)
 
+
 user = User("yousef", "yasser", "email.com")
 user1 = User("yousef", "yasser", "email.com")
-pro = Profile('bbb', ['ll', 'pp'], user1)
-post = Post('posttext',user1)
-com = Comment('rrr', post, user1)
+pro = Profile("bbb", ["ll", "pp"], user1)
+post = Post("posttext", user1)
+com = Comment("rrr", post, user1)
 
 # input => post.text , output => list of data form comment
-k_post = input()
-def get_comments(post):
-    comments = []
-    for i in Comment.data:
-        if i.post.text == post:
-            comments.append(i)
-    print(comments)
-
-get_comments(k_post)
-
-# input => post.text , output => list of data form comment
+# k_post = input()
 
 
+# def get_comments(post):
+#     comments = []
+#     for i in Comment.data:
+#         if i.post.text == post:
+#             comments.append(i)
+#     print(comments)
+
+
+# get_comments(k_post)
+
+# input => user.fname , output => list of data form post
+
+u_post = input()
+
+
+def get_posts(user):
+    posts = []
+    for i in Post.data:
+        if i.user.fname == user:
+            posts.append(i)
+    print(posts)
+
+
+get_posts(u_post)
 
 """
 - save class data in list 
@@ -83,14 +99,12 @@ get_comments(k_post)
 #         "Comment": Comment.data,
 #     }
 #     if key in arr.keys() :
-#         print(arr[key])            
+#         print(arr[key])
 
 
 # get_data(key)
 
 
-
 """
 
 """
-
